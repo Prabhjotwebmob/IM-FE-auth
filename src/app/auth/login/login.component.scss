@@ -1,0 +1,418 @@
+.munix-bg {
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	z-index: 2;
+	// background-image: url(src/assets/img/login/munix-login-bg.svg) !important;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	position: relative;
+	min-height: 100vh;
+}
+
+.insti-bg {
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	z-index: 2;
+	background-color: var(--white) !important;
+	position: relative;
+	min-height: 100vh;
+}
+
+.munix-login-page .munix-login {
+	padding: 2.143rem 0;
+}
+
+.munix-login-page .munix-form {
+	margin: 0;
+}
+
+.munix-login-page .instimatch-login {
+	background-color: var(--white);
+	border-radius: 0.571rem;
+	width: 33vw;
+	display: block;
+	margin: auto;
+}
+
+.munix-login-page .form {
+	padding: 0 2.143rem;
+}
+
+.munix-login-page .copy-right {
+	position: absolute;
+	left: 0;
+	right: 0;
+	width: 100%;
+	bottom: -15px;
+	font-size: 1rem;
+	text-align: center;
+	color: var(--white);
+}
+
+.login-content {
+	font-size: 1rem;
+}
+
+.login-content .form-group a {
+	font-style: italic;
+	font-size: 1rem;
+	text-decoration: underline;
+	color: #9e2c43;
+	cursor: pointer;
+	margin-top: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.policy-service {
+	margin: 0 0 2.143rem 0;
+	font-size: 1rem;
+	line-height: 1.429rem;
+	color: #475467;
+}
+
+.login-content .policy-service a {
+	color: #0084ff;
+	text-decoration: none;
+}
+
+.logo-footer img {
+	margin: 0 auto;
+	text-align: center;
+	width: 80%;
+}
+
+.munix-login-page .login-buttons {
+	padding: 1.429rem 1.214rem;
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	justify-items: center;
+}
+
+.munix-login-page .munix-btn-bg {
+	background-color: #ebebeb;
+	border-bottom-left-radius: 0.571rem;
+	border-bottom-right-radius: 0.571rem;
+	border-top: 0.071rem solid #d4d4d4;
+}
+
+.munix-login-page .login-buttons button {
+	font-size: 1.143rem;
+	line-height: 1.714rem;
+	padding: 0.571rem 1.143rem;
+	background: #9e2c43;
+	color: var(--white);
+	font-weight: 600;
+	width: 10.714rem;
+	float: right;
+	border-radius: 3.571rem;
+	box-shadow: 0.143rem 0.071rem 0.214rem #aaa;
+}
+
+.munix-login-page .login-buttons button:hover {
+	background: #ba3752;
+}
+
+.login-sec>.insti-bg {
+	display: flex;
+}
+
+.insti-bg .left-p {
+	flex: 1;
+	width: 50%;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	// background: url("../../../../../assets/img/other/background-image.svg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.insti-bg .right-p {
+	flex: 1;
+	width: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.login-form img {
+	width: 21.429rem;
+	padding: 0.714rem 0 0 0;
+	display: block;
+	margin: auto;
+}
+
+.login-form h2 {
+	color: var(--lightblack);
+	font-size: 1.786rem;
+	font-weight: 400;
+	text-align: center;
+	padding: 0.5rem 0.714rem;
+}
+
+.munix-login-page .forgot-password {
+	font-size: 1.071rem;
+}
+
+.login-content form input.form-control {
+	padding: 0.714rem 1rem;
+	background: #ffffff !important;
+	border: 0.071rem solid #d0d5dd;
+	box-shadow: 0px 0.071rem 0.143rem rgba(16, 24, 40, 0.05);
+	border-radius: 0.571rem;
+	font-size: 1rem;
+	line-height: 1.714rem;
+	color: #667085;
+}
+
+.login-content form input.form-control:focus {
+	border: 0.071rem solid var(--lightblack);
+	outline: none;
+	box-shadow: none;
+}
+
+.form-group {
+	margin-bottom: 1.5rem;
+	position: relative;
+}
+
+form {
+	display: block;
+}
+
+.login-content form input::placeholder {
+	opacity: 0.95;
+}
+
+.login-content form input.form-control::placeholder {
+	columns: var(--lightblack) !important;
+}
+
+.login-content form .form-control[disabled] {
+	opacity: 0.6;
+}
+
+.login-content hr {
+	margin-top: 1rem;
+	margin-bottom: 0.6rem;
+	background: rgba(255, 255, 255, 0.25);
+}
+
+.login-content a {
+	font-size: 1rem;
+	color: #161616;
+	text-align: center;
+	text-decoration: underline;
+}
+
+.login-content a:hover {
+	color: #161616;
+}
+
+.login-content form input.form-control,
+.cap {
+	height: 3.143rem;
+}
+
+.password-eye {
+	float: right;
+	position: relative;
+	z-index: 2;
+	bottom: 2rem;
+	right: 1.5rem;
+}
+
+.futurae-section {
+	display: block;
+	text-align: center;
+	padding-top: 7.143rem;
+	background-repeat: repeat;
+	height: 100%;
+	position: absolute;
+	width: 100%;
+	z-index: -1;
+	background-color: #52151e;
+	background-position: center;
+	background-size: cover;
+	// background-image: url(src/assets/img/other/particle-img.svg);
+}
+
+.futurae-section iframe {
+	width: 799px;
+	height: 502px;
+}
+
+.fut-img-section img {
+	max-width: 500px;
+	height: auto;
+	margin-bottom: 2.143rem;
+}
+
+.futurae-section-none,
+.userLogOutModalButton {
+	display: none;
+}
+
+/* New css */
+.carousel-indicators [data-target] {
+	height: 0.857rem;
+	width: 0.857rem;
+	border-radius: 50%;
+	border: none;
+	margin: 0 0.75rem;
+	background: rgba(255, 255, 255, 0.5);
+}
+
+.carousel-indicators [data-target].active {
+	background: var(--white);
+}
+
+.carousel-inner .carousel-item {
+	padding: 5rem 0 0;
+}
+
+.carousel-inner .carousel-item .carousel-caption {
+	position: relative;
+	left: 0;
+	right: 0;
+	width: 60%;
+	margin: 7rem auto 0;
+}
+
+.carousel-inner .carousel-item img {
+	width: 40%;
+}
+
+.carousel-inner .carousel-item h2 {
+	font-weight: 700;
+	font-size: 2.143rem;
+	line-height: 2.714rem;
+	text-align: center;
+	color: #fff;
+}
+
+.carousel-inner .carousel-item p {
+	font-size: 1.143rem;
+	line-height: 1.714rem;
+	text-align: center;
+	color: #eaecf0;
+	padding: 0 0 2rem;
+}
+
+.right-p .instimatch-login {
+	text-align: start;
+	margin: 6rem auto 0;
+	padding: 5.714rem;
+	width: 37vw;
+	background: #ffffff;
+	box-shadow: 0px 1.714rem 3.429rem -12px rgba(16, 24, 40, 0.18);
+	border-radius: 1.143rem;
+}
+
+.right-p label {
+	font-weight: 500;
+	font-size: 1rem;
+	line-height: 1.429rem;
+	color: #344054;
+	margin: 0 0 0.5rem 0;
+}
+
+.right-p .instimatch-login .login-buttons .btn {
+	padding: 1.143rem 2rem;
+	height: 4rem;
+	width: 100%;
+	background: #242c60;
+	border: 0.071rem solid #242c60;
+	box-shadow: 0px 0.071rem 0.143rem rgba(16, 24, 40, 0.05);
+	border-radius: 0.571rem;
+	font-weight: 600;
+	font-size: 1.143rem;
+	line-height: 1.714rem;
+	color: #ffff;
+}
+
+.login-heading h2 {
+	font-weight: 700;
+	font-size: 2.571rem;
+	line-height: 3.143rem;
+	text-align: center;
+	letter-spacing: -0.02em;
+	color: #242c60;
+}
+
+.login-heading p {
+	font-size: 1.143rem;
+	line-height: 1.714rem;
+	text-align: center;
+	color: #667085;
+}
+
+.right-p .login-content .forgot-password {
+	font-weight: 500;
+	font-size: 1.143rem;
+	line-height: 1.714rem;
+	color: #242c60;
+	text-decoration: none;
+	position: relative;
+	top: 1rem;
+}
+
+.right-p .login-content .captcha-image {
+	height: 0.5rem;
+}
+
+.success-input {
+	border-right: 5px solid #008000 !important;
+	border-left: 1px solid #008000 !important;
+	border-top: 1px solid #008000 !important;
+	border-bottom: 1px solid #008000 !important;
+}
+
+.invalid-input {
+	border-right: 5px solid #ff0000 !important;
+	border-left: 1px solid #ff0000 !important;
+	border-top: 1px solid #ff0000 !important;
+	border-bottom: 1px solid #ff0000 !important;
+}
+
+@media screen and (max-width: 992px) {
+	.insti-bg .left-p {
+		display: none;
+	}
+
+	.right-p .instimatch-login {
+		width: 80vw;
+	}
+}
+
+.navbar-default {
+	background: #ffffff;
+	border-bottom: 0.071rem solid #d0d5dd;
+	position: fixed;
+	box-shadow: none;
+	height: 6rem;
+	width: 100%;
+	z-index: 99;
+}
+
+.navbar-default img {
+	width: 21rem;
+}
+
+@media screen and (max-width: 576px) {
+	.navbar-brand img {
+		width: 11.429rem;
+	}
+}
