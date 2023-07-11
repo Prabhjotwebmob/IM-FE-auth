@@ -7,7 +7,7 @@
 			"projectType": "application",
 			"schematics": {
 				"@schematics/angular:component": {
-					"style": "scss"
+					"style": "css"
 				}
 			},
 			"root": "",
@@ -24,13 +24,13 @@
 							"zone.js"
 						],
 						"tsConfig": "tsconfig.app.json",
-						"inlineStyleLanguage": "scss",
+						"inlineStyleLanguage": "css",
 						"assets": [
 							"src/favicon.ico",
 							"src/assets"
 						],
 						"styles": [
-							"src/styles.scss"
+							"src/styles.css"
 						],
 						"scripts": [],
 						"extraWebpackConfig": "webpack.config.js",
@@ -77,8 +77,8 @@
 					},
 					"defaultConfiguration": "development",
 					"options": {
-						"port": 3006,
-						"publicHost": "http://localhost:3006",
+						"port": 4000,
+						"publicHost": "http://localhost:4000",
 						"extraWebpackConfig": "webpack.config.js"
 					}
 				},
@@ -97,13 +97,13 @@
 							"zone.js/testing"
 						],
 						"tsConfig": "tsconfig.spec.json",
-						"inlineStyleLanguage": "scss",
+						"inlineStyleLanguage": "css",
 						"assets": [
 							"src/favicon.ico",
 							"src/assets"
 						],
 						"styles": [
-							"src/styles.scss"
+							"src/styles.css"
 						],
 						"scripts": []
 					}

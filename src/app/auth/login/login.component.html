@@ -1,3 +1,214 @@
 <p>
-    <a routerLink="/web/market">Click here to login</a>
+    <a (click)="setToken()">Click here to login</a>
+    <br>
+    <br>
+    {{token$ | async | json}}
 </p>
+<section *ngIf="!iframe_show" class="login-sec">
+    <div [ngClass]="userAuthService.platform.host === platformConstant.INSTIMATCH ? 'insti-bg' :'munix-bg'">
+        <nav class="navbar navbar-default navbar-fixed-top"
+            *ngIf="userAuthService.platform.host === platformConstant.INSTIMATCH">
+            <div class="container-fluid">
+                <div class="navbar-header page-scroll">
+                    <a class="navbar-brand" href="#page-top"><img alt="IM"
+                            src="assets/img/logo/instimatch-black.svg"></a>
+                </div>
+            </div>
+        </nav>
+        <app-header *ngIf="userAuthService.platform.host === platformConstant.INSTIMATCH"></app-header>
+        <div class="left-p" *ngIf="userAuthService.platform.host === platformConstant.INSTIMATCH">
+            <div id="carouselExampleCaptions" class="carousel slide w-100" data-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-target="#carouselExampleCaptions" data-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-target="#carouselExampleCaptions" data-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-target="#carouselExampleCaptions" data-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="assets/img/login/slider-1.svg" class="d-block mx-auto" alt="..." />
+                        <div class="carousel-caption d-none d-md-block">
+                            <h2>INSTIMATCH GLOBAL</h2>
+                            <p>Our digital network enables a global community of institutional borrowers and
+                                lenders to directly engage with each other and execute on their liquidity needs –
+                                all within our convenient and easy to use platform.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/img/login/LATEST-JOINERS.svg" class="d-block mx-auto" alt="..." />
+                        <div class="carousel-caption d-none d-md-block">
+                            <h2>OUR MONEY MARKET</h2>
+                            <p>Our digital cash deposit marketplace offers a plethora of key features
+                                and added-value services to leverage from.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/img/login/our-partner.svg" class="d-block mx-auto" alt="..." />
+                        <div class="carousel-caption d-none d-md-block">
+                            <h2>OUR PARTNERS</h2>
+                            <p>We work with a range of partners, including top technology companies,
+                                financial service firms and brokers in specialized markets.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div [ngClass]="userAuthService.platform.host === platformConstant.INSTIMATCH ? 'right-p' : 'munix-login-page'">
+            <div class="munix-login">
+                <div class="instimatch-login">
+                    <div class="login-form" *ngIf="userAuthService.platform.host === platformConstant.MUNIX">
+                        <img class="" src="assets/img/logo/munix-logo-black.svg" alt="Munix" />
+                        <h2>Login in to your Application Dashboard</h2>
+                    </div>
+                    <div class="login-heading" *ngIf="userAuthService.platform.host === platformConstant.INSTIMATCH">
+                        <h2>Sign In<ng-container *ngIf="userName"> back {{userName | titlecase}},</ng-container>
+                        </h2>
+                        <p>Welcome back! Please enter your details.</p>
+                    </div>
+                    <div class="login-content">
+                        <form class="form d-block" [formGroup]="signinForm">
+                            <input type="hidden" name="forgot" value="0">
+                            <div class="form-group m-b-10">
+                                <label class="munix-form">Username</label> <label class="float-right munix-form">
+                                    <a *ngIf="userAuthService.platform.host === platformConstant.MUNIX"
+                                        href="https://www.munix.co.uk/#register" target="_blank">
+                                        Register
+                                        your interest
+                                    </a>
+                                </label>
+                                <!-- <input type="text" spellcheck="false" autocomplete="off"
+                                    class="form-control form-control-lg" formControlName="username" autofocus required
+                                    (focusout)="focusOut($event, 'username')"
+                                    [ngClass]="signinForm.get('username').hasError('required') && (signinForm.controls['username'].touched || waitingForResponse) ? 'invalid-input' : 'success-input'">
+                                <ng-container *ngIf="userAuthService.platform.host !== platformConstant.INSTIMATCH">
+                                    <p class="red-mess position-absolute"
+                                        *ngIf="signinForm.get('username').hasError('required') && (signinForm.controls['username'].touched || waitingForResponse)">
+                                        Please enter a username
+                                    </p>
+                                </ng-container> -->
+                            </div>
+                            <div class="form-group m-b-10">
+                                <label>Password</label>
+                                <!-- <input [type]="showPassword ? 'text' : 'password'" autocomplete="off"
+                                    (focusout)="focusOut($event, 'password')" class="form-control form-control-lg"
+                                    formControlName="password" required=""
+                                    [ngClass]="signinForm.get('password').hasError('required') && (signinForm.controls['password'].touched || waitingForResponse) ? 'invalid-input' : 'success-input'">
+                                <i class="far fa-eye-slash password-eye " *ngIf="!showPassword"
+                                    (click)="showPassword = true"></i>
+                                <i class="fas fa-eye password-eye " *ngIf="showPassword"
+                                    (click)="showPassword = false"></i>
+                                <ng-container *ngIf="userAuthService.platform.host !== platformConstant.INSTIMATCH">
+                                    <p class="red-mess position-absolute"
+                                        *ngIf="signinForm.get('password').hasError('required') && (signinForm.controls['password'].touched || waitingForResponse)">
+                                        Please enter a password
+                                    </p>
+                                </ng-container> -->
+                            </div>
+                            <div class="form-group m-b-10" *ngIf="mainService.displaySvgCaptcha">
+                                <div class="red-mess">
+                                    <div *ngIf="mainService.captchaImg" class="" [innerHTML]="mainService.captchaImg">
+                                    </div>
+                                    <div class="h-0">
+                                        <div class="image-recaptcha d-flex">
+                                            <div class="d-flex align-items-center mx-2">
+                                                <i class="fas fa-sync-alt" ngbTooltip="Refresh Captcha" container="body"
+                                                    *ngIf="mainService.captchaImg"
+                                                    (click)="getCaptchaFromService()"></i>
+                                                <b class="text-dark mx-2">=</b>
+                                            </div>
+                                            <!-- <input *ngIf="mainService.captchaImg" type="text"
+                                                (focusout)="focusOut($event, 'captchaResult')" spellcheck="false"
+                                                autocomplete="off" formControlName="captchaResult"
+                                                placeholder="Please enter captcha result here." class="form-control"
+                                                name="captchaResult" required
+                                                [ngClass]="signinForm.get('captchaResult').hasError('required') && signinForm.controls['captchaResult'].touched ? 'invalid-input' : 'success-input'" /> -->
+                                        </div>
+                                        <div *ngIf="!mainService.captchaImg">
+                                            <span *ngIf="!mainService.refreshCaptcha">Captcha loading
+                                                error.</span>
+                                            <span *ngIf="mainService.refreshCaptcha">Captcha loading. Please
+                                                wait..</span>
+                                        </div>
+                                        <ng-container
+                                            *ngIf="userAuthService.platform.host !== platformConstant.INSTIMATCH">
+                                            <!-- <p class="red-mess text-nowrap position-absolute mt-n4"
+                                                *ngIf="signinForm.get('captchaResult').hasError('required') && signinForm.controls['captchaResult'].touched">
+                                                Please verify that you're not a robot.
+                                            </p> -->
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="" *ngIf="!mainService.displaySvgCaptcha">
+                                <p class="policy-service">
+                                    This site is protected by reCAPTCHA and the Google
+                                    <a (click)="mainService.openCaptchaPrivacyPolicy()">Privacy Policy</a> and
+                                    <a (click)="mainService.openCaptchaTermsOfService()">Terms of Service</a>
+                                    apply.
+                                </p>
+                            </div>
+                        </form>
+                        <div class="text-center munix-btn-bg">
+                            <div class="login-buttons">
+                                <div *ngIf="!(!mainService.displaySvgCaptcha && !mainService.reCaptchaKey)">
+                                    <button type="submit" (click)="login()"
+                                        class="btn btn-default btn-block btn-lg text-center">Sign me in</button>
+                                </div>
+                                <div *ngIf="!mainService.displaySvgCaptcha && !mainService.reCaptchaKey">
+                                    <button type="submit" class="btn btn-default btn-block btn-lg text-center">Please
+                                        Wait...</button>
+                                </div>
+                                <div class="mt-2">
+                                    <a class="forgot-password" routerLink="/forgot">Forgot your Password?</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <p class="text-center copy-right">
+                        © Copyright {{currentYear}}, {{userAuthService.platform.host === platformConstant.INSTIMATCH ? 'Instimatch
+                        Global AG, Switzerland' : 'Munix Municipal Exchange'}}
+                    </p> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div [ngClass]="iframe_show ? 'futurae-section' : 'futurae-section-none'" class="overflow-hidden">
+    <div class="fut-img-section" *ngIf="iframe_show">
+        <img src="assets/img/logo/futurae-logo.svg" alt="Futurae">
+    </div>
+    <iframe id="futurae_widget" frameborder="0" allow="microphone" scrolling="no"></iframe>
+</div>
+
+<!--ErrorMessagePopUp-->
+<button data-target="#ErrorMessagePopUp" data-toggle="modal" class="d-none" #ErrorMessagePopUpButton
+    id="ErrorMessagePopUpButton">
+</button>
+<!-- <div class="modal sidenav-modal headnew-modal expiring-modal maturity-modal" id="ErrorMessagePopUp">
+    <div class="modal-dialog modal-dialog-scrollable ">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h3>User locked out</h3>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>After 5 failed attempts to log in - you have been locked out of the system for security reasons. <br>
+                    <br>
+                    <ng-container>
+                        Please contact your relationship manager or the {{userAuthService.platform.shortName}} team via
+                        <br> Email: <a
+                            href="{{'mailto:' + userAuthService.platform.supportEmail.replace('[at]', '@')}}">{{userAuthService.platform.supportEmail}}</a>
+                        or <br> Support Hotline:
+                        {{userAuthService.platform.supportLine}}
+                    </ng-container>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div> -->

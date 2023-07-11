@@ -1,5 +1,14 @@
-const { shareAll, withModuleFederationPlugin } = require('@angular-architects/module-federation/webpack');
-const webpack = require('webpack');
+const { withModuleFederationPlugin } = require('@angular-architects/module-federation/webpack');
+
+const mf = require('@angular-architects/module-federation/webpack');
+const path = require('path');
+const share = mf.share;
+
+const sharedMappings = new mf.SharedMappings();
+sharedMappings.register(path.join(__dirname, 'tsconfig.json'), [
+  '@nx-ngrx-angular/data-store',
+]);
+
 module.exports = new withModuleFederationPlugin({
   name: 'auth',
 
@@ -7,33 +16,48 @@ module.exports = new withModuleFederationPlugin({
     './Module': './src/app/auth/auth.module.ts',
   },
 
-  shared: {
-    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
-  },
+  shared: share({
+    '@angular/core': {
+      singleton: true,
+      strictVersion: true,
+      requiredVersion: 'auto',
+    },
+    '@angular/common': {
+      singleton: true,
+      strictVersion: true,
+      requiredVersion: 'auto',
+    },
+    '@angular/common/http': {
+      singleton: true,
+      strictVersion: true,
+      requiredVersion: 'auto',
+    },
+    '@angular/router': {
+      singleton: true,
+      strictVersion: true,
+      requiredVersion: 'auto',
+    },
+    '@ngrx/effects': {
+      singleton: true,
+      strictVersion: true,
+      requiredVersion: 'auto',
+    },
+    '@ngrx/store': {
+      singleton: true,
+      strictVersion: true,
+      requiredVersion: 'auto',
+    },
+    '@ngrx/store-devtools': {
+      singleton: true,
+      strictVersion: true,
+      requiredVersion: 'auto',
+    },
+    '@ngrx/router-store': {
+      singleton: true,
+      strictVersion: true,
+      requiredVersion: 'auto',
+    },
+
+    ...sharedMappings.getDescriptors(),
+  }),
 })
-// module.exports = {
-//   plugins: [
-//     new webpack.DefinePlugin({
-//       'process.env': {
-//         captcha_key : JSON.stringify(process.env.captcha_key),
-//         firebase_apiKey : JSON.stringify(process.env.firebase_apiKey),
-//         firebase_authDomain : JSON.stringify(process.env.firebase_authDomain),
-//         firebase_databaseURL : JSON.stringify(process.env.firebase_databaseURL),
-//         firebase_projectId : JSON.stringify(process.env.firebase_projectId),
-//         firebase_storageBucket : JSON.stringify(process.env.firebase_storageBucket),
-//         firebase_messagingSenderId : JSON.stringify(process.env.firebase_messagingSenderId),
-//         firebase_appId : JSON.stringify(process.env.firebase_appId),
-//         firebase_measurementId : JSON.stringify(process.env.firebase_measurementId)
-//       },
-//       name: 'auth',
-
-//       exposes: {
-//         './Module': './src/app/IM-FE-auth/IM-FE-auth.module.ts',
-//       },
-
-//       shared: {
-//         ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
-//       },
-//     })
-//   ]
-// }

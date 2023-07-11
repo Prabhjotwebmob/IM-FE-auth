@@ -4,7 +4,7 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	z-index: 2;
-	// background-image: url(src/assets/img/login/munix-login-bg.svg) !important;
+	/* background-image: url(src/assets/img/login/munix-login-bg.svg) !important; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -132,7 +132,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	// background: url("../../../../../assets/img/other/background-image.svg");
+	/* background: url("../../../../../assets/img/other/background-image.svg"); */
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -246,7 +246,7 @@ form {
 	background-color: #52151e;
 	background-position: center;
 	background-size: cover;
-	// background-image: url(src/assets/img/other/particle-img.svg);
+	/* background-image: url(src/assets/img/other/particle-img.svg); */
 }
 
 .futurae-section iframe {
