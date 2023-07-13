@@ -132,7 +132,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	/* background: url("../../../../../assets/img/other/background-image.svg"); */
+	background: url("http://localhost:5000/assets/img/other/background-image.svg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;

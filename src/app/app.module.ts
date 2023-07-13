@@ -13,7 +13,7 @@ import { appReducer } from '../../../IM-FE-libs/store/states/app.states';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // StoreModule.forRoot(appReducer),
+    StoreModule.forRoot(appReducer),
     StoreModule.forFeature('auth', appReducer),
     HttpClientModule
   ],
