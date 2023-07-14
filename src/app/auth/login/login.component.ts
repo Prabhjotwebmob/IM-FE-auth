@@ -8,6 +8,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { loginSuccess } from '../../../../../IM-FE-libs/store/actions/auth.actions';
+import { WebApiService } from 'src/app/web-api-service';
 declare let Futurae: any;
 declare let $: any;
 
@@ -27,9 +28,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
   @HostListener('document:keydown.enter', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
-    // if (event.key === "Enter" && !this.waitingForResponse && !(!this.mainService.displaySvgCaptcha && !this.mainService.reCaptchaKey)) {
-    //   this.login();
-    // }
+    if (event.key === "Enter") {
+      this.login();
+    }
   }
   @ViewChild('ErrorMessagePopUpButton', { static: true }) ErrorMessagePopUpButton: ElementRef;
   @ViewChild('userLogOutModalButton') userLogOutModalButton: ElementRef;
@@ -65,6 +66,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     private formBuilder: FormBuilder,
     private ngxSpinnerService: NgxSpinnerService,
     private router: Router,
+    private webApiService: WebApiService
     // private toastrService: ToastrService,
     // private angularFireMessaging: AngularFireMessaging,
   ) {
@@ -113,27 +115,33 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   async login() {
     try {
+      console.log("step1")
       // if (this.waitingForResponse) return;
       // if (this.mainService.displaySvgCaptcha) {
       //   this.signinForm.get('captchaResult').markAsTouched();
       // }
-      // const form_data = this.signinForm.value;
+      const form_data = this.signinForm.value;
+      console.log("step1")
       // if (!form_data.username || !form_data.password || (this.mainService.displaySvgCaptcha && !form_data.captchaResult)) {
-      //   return this.toastrService.error(toasterMessage.allFieldsMandatory, 'Error');
+      //   // return this.toastrService.error(toasterMessage.allFieldsMandatory, 'Error');
       // }
       // this.waitingForResponse = true;
       // this.ngxSpinnerService.show();
-      // let payLoad = {
-      //   username: form_data['username'],
-      //   password: btoa(form_data['password'].trim()),
-      //   location: 'application'
-      // };
-      // if (this.mainService.displaySvgCaptcha) {
-      //   payLoad['captcha'] = (form_data['captchaResult']).trim();
-      // } else {
-      //   payLoad['captcha'] = this.mainService.reCaptchaKey;
-      // }
-      // const response = await this.webApiService.login(payLoad);
+      console.log("step1")
+      let payLoad = {
+        username: form_data['username'],
+        password: "btoa(form_data['password'].trim())",
+        location: 'application'
+      };
+      console.log("step1")
+      if (this.mainService.displaySvgCaptcha) {
+        payLoad['captcha'] = (form_data['captchaResult']).trim();
+      } else {
+        // payLoad['captcha'] = this.mainService.reCaptchaKey;
+      }
+      console.log('payLoad', payLoad)
+      const response = await this.webApiService.login(payLoad);
+      console.log('response', response)
       // sessionStorage.setItem('show_ticker_tape', JSON.stringify(true));
       // this.userAuthService.setShowAccessCompanies(response['showAccessCompanies']);
       // this.userAuthService.setAccessCompanies(response['accessCompanies']);
@@ -181,6 +189,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       //   this.ngxSpinnerService.hide();
       // }
     } catch (error) {
+      console.log(error)
       // this.waitingForResponse = false;
       // this.ngxSpinnerService.hide();
       // if (this.mainService.displaySvgCaptcha) {
@@ -250,6 +259,27 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   setToken() {
     this.store.dispatch(loginSuccess({ token: "myToken", redirect: true }));
-    this.router.navigateByUrl('/web/market')
+    // this.router.navigateByUrl('/web/money-market')
+    this.login();
   }
 }
+
+// webpack/process env
+// data sharing token management
+
+// npm i @ngrx/effects@13 --force
+// npm i @ngrx/router-store@13 --force
+// npm i @ngrx/store@13 --force
+// npm i @ngrx/store-devtools@13 --force
+
+// auth                4000     Git Done
+// sidebar             4001     Git Done
+// profile             4002
+// chat                4003     Git Done
+// MM                  4004     Git Done
+// repo                4005     Git Done
+// notice              4006     Git Done
+// mosaic              4007     Git Done
+// notifications       4008
+// trading company     4009     Git Done
+// third party         4010     Git Done
