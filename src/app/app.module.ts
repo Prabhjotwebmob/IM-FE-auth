@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
-import { appReducer } from '../../../IM-FE-libs/store/states/app.states';
-import { SharedModule } from '../../../IM-FE-libs/shared-module';
+import { appReducer } from '../../../libs/store/states/app.states';
+import { SharedModule } from '../../../libs/shared-module';
 import { WebApiService } from './web-api-service';
 
 @NgModule({

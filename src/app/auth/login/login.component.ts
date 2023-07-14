@@ -3,12 +3,12 @@ import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } fro
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { ToastrService } from '../../../../../IM-FE-libs/services/toaster.service';
-import { RolesAndPermissionsService } from '../../../../../IM-FE-libs/services/roles-and-permissions.service';
+import { ToastrService } from '../../../../../libs/services/toaster.service';
+import { RolesAndPermissionsService } from '../../../../../libs/services/roles-and-permissions.service';
 // import { AngularFireMessaging } from '@angular/fire/compat/messaging';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
-import { loginSuccess } from '../../../../../IM-FE-libs/store/actions/auth.actions';
+import { loginSuccess } from '../../../../../libs/store/actions/auth.actions';
 import { WebApiService } from 'src/app/web-api-service';
 declare let Futurae: any;
 declare let $: any;

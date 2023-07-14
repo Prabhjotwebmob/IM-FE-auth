@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpService } from '../../../IM-FE-libs/services/http-service';
+import { HttpService } from '../../../libs/services/http-service';
 
 @Injectable({
     providedIn: "root"
