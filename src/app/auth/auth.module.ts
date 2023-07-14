@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AuthRoutingModule } from './auth-routing.module';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { LoginComponent } from './login/login.component';
-import { NgxSliderModule } from '@angular-slider/ngx-slider';
+// import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { SliderModule } from 'primeng/slider';
 
 @NgModule({
@@ -16,7 +16,7 @@ import { SliderModule } from 'primeng/slider';
     CommonModule,
     AuthRoutingModule,
     SliderModule,
-    NgxSliderModule
+    // NgxSliderModule
   ]
 })
 export class AuthModule { }
